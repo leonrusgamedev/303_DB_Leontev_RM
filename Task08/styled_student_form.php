@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$last, $first, $gender, $group_id]);
     }
     // После сохранения перенаправляем на главную страницу
-    header("Location: index.php");
+    header("Location: styled_index.php");
     exit;
 }
 ?>
@@ -45,9 +45,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $editing ? "Редактирование студента" : "Добавление студента"; ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+<title><?php echo $editing ? "Редактирование студента" : "Добавление студента"; ?></title>
 </head>
 <body>
+<section class="page">
+  <div class="container">
+
 <h2><?php echo $editing ? "Редактирование студента" : "Добавление студента"; ?></h2>
 
 <form method="post">
@@ -84,8 +89,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </select>
     <br>
     <input type="submit" value="Сохранить">
-    <a href="index.php">Отмена</a>
+    <a href="styled_index.php">Отмена</a>
 </form>
 
+  </div>
+</section>
 </body>
 </html>

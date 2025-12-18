@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$id]);
     }
     // В любом случае возвращаемся на главную страницу
-    header("Location: index.php");
+    header("Location: styled_index.php");
     exit;
 }
 
@@ -28,9 +28,14 @@ $stud = $stmt->fetch();
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Удаление студента</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+<title>Удаление студента</title>
 </head>
 <body>
+<section class="page">
+  <div class="container">
+
 <h2>Удаление студента</h2>
 
 <?php if (!$stud): ?>
@@ -47,5 +52,7 @@ $stud = $stmt->fetch();
     </form>
 <?php endif; ?>
 
+  </div>
+</section>
 </body>
 </html>

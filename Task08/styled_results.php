@@ -30,9 +30,14 @@ $exams = $stmt->fetchAll();
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Результаты экзаменов – <?php echo $studentName; ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+<title>Результаты экзаменов – <?php echo $studentName; ?></title>
 </head>
 <body>
+<section class="page">
+  <div class="container">
+
 <h2>Результаты экзаменов студента <?php echo $studentName; ?> (группа <?php echo $groupName; ?>)</h2>
 
 <table border="1" cellpadding="5">
@@ -50,14 +55,16 @@ $exams = $stmt->fetchAll();
             <td><?php echo $date; ?></td>
             <td><?php echo $grade; ?></td>
             <td>
-                <a href="exam_form.php?student_id=<?php echo $student_id; ?>&id=<?php echo $eid; ?>">Редактировать</a> |
-                <a href="exam_delete.php?student_id=<?php echo $student_id; ?>&id=<?php echo $eid; ?>">Удалить</a>
+                <a href="styled_exam_form.php?student_id=<?php echo $student_id; ?>&id=<?php echo $eid; ?>">Редактировать</a> |
+                <a href="styled_exam_delete.php?student_id=<?php echo $student_id; ?>&id=<?php echo $eid; ?>">Удалить</a>
             </td>
         </tr>
     <?php endforeach; ?>
 </table>
 
-<p><a href="exam_form.php?student_id=<?php echo $student_id; ?>">Добавить результат экзамена</a></p>
-<p><a href="index.php">Вернуться к списку студентов</a></p>
+<p><a href="styled_exam_form.php?student_id=<?php echo $student_id; ?>">Добавить результат экзамена</a></p>
+<p><a href="styled_index.php">Вернуться к списку студентов</a></p>
+  </div>
+</section>
 </body>
 </html>

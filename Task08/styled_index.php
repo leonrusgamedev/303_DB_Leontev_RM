@@ -3,13 +3,18 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Список студентов</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+<title>Список студентов</title>
 </head>
 <body>
+<section class="page">
+  <div class="container">
+
 <h1>Список студентов</h1>
 
 <!-- Форма фильтрации по группе -->
-<form method="get" action="index.php">
+<form method="get" action="styled_index.php">
     Фильтр по группе:
     <select name="group_id">
         <option value="">Все группы</option>
@@ -52,15 +57,17 @@
         echo "<tr>";
         echo "<td>$group</td><td>$last</td><td>$first</td><td>$gender</td>";
         echo "<td>
-            <a href='student_form.php?id=$id'>Редактировать</a> |
-            <a href='student_delete.php?id=$id'>Удалить</a> |
-            <a href='results.php?student_id=$id'>Результаты экзаменов</a>
+            <a href='styled_student_form.php?id=$id'>Редактировать</a> |
+            <a href='styled_student_delete.php?id=$id'>Удалить</a> |
+            <a href='styled_results.php?student_id=$id'>Результаты экзаменов</a>
           </td>";
         echo "</tr>";
     }
     ?>
 </table>
 
-<p><a href="student_form.php">Добавить студента</a></p>
+<p><a href="styled_student_form.php">Добавить студента</a></p>
+  </div>
+</section>
 </body>
 </html>

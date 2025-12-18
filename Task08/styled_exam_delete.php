@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$id, $student_id]);
     }
     // Возвращаемся к списку экзаменов студента
-    header("Location: results.php?student_id=$student_id");
+    header("Location: styled_results.php?student_id=$student_id");
     exit;
 }
 
@@ -28,9 +28,14 @@ $exam = $stmt->fetch();
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Удаление результата экзамена</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+<title>Удаление результата экзамена</title>
 </head>
 <body>
+<section class="page">
+  <div class="container">
+
 <h2>Удаление результата экзамена</h2>
 
 <?php if (!$exam): ?>
@@ -46,5 +51,7 @@ $exam = $stmt->fetch();
     </form>
 <?php endif; ?>
 
+  </div>
+</section>
 </body>
 </html>

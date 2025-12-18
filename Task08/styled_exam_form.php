@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$student_id, $discipline_id, $exam_date, $grade]);
     }
     // Возврат к списку результатов
-    header("Location: results.php?student_id=$student_id");
+    header("Location: styled_results.php?student_id=$student_id");
     exit;
 }
 ?>
@@ -68,9 +68,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $editing ? "Редактирование результата экзамена" : "Добавление результата экзамена"; ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+<title><?php echo $editing ? "Редактирование результата экзамена" : "Добавление результата экзамена"; ?></title>
 </head>
 <body>
+<section class="page">
+  <div class="container">
+
 <h2>
     <?php echo $editing ? "Редактирование результата экзамена" : "Добавление результата экзамена"; ?>
     <br>студента <?php echo $studentName; ?> (группа <?php echo $groupName; ?>)
@@ -130,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="text" name="grade" value="<?php echo htmlspecialchars($exam['grade']); ?>" required>
     <br>
     <input type="submit" value="Сохранить">
-    <a href="results.php?student_id=<?php echo $student_id; ?>">Отмена</a>
+    <a href="styled_results.php?student_id=<?php echo $student_id; ?>">Отмена</a>
 </form>
 
 <!-- Скрипт для фильтрации списка дисциплин по выбранному курсу -->
@@ -165,5 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     document.addEventListener('DOMContentLoaded', filterDisciplines);
 </script>
 
+  </div>
+</section>
 </body>
 </html>
